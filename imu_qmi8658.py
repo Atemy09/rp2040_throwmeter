@@ -53,14 +53,14 @@ class QMI8658(object):
     def Config_apply(self):
         # REG CTRL1
         self._write_byte(0x02,0x60)
-        # REG CTRL2 : QMI8658AccRange_8g  and QMI8658AccOdr_1000Hz
-        self._write_byte(0x03,0x23)
-        # REG CTRL3 : QMI8658GyrRange_512dps and QMI8658GyrOdr_1000Hz
-        self._write_byte(0x04,0x53)
+        # REG CTRL2 : QMI8658AccRange_8g  and QMI8658AccOdr_28Hz
+        self._write_byte(0x03,0x28)
+        # REG CTRL3 : QMI8658GyrRange_512dps and QMI8658GyrOdr_28Hz
+        self._write_byte(0x04,0x58)
         # REG CTRL4 : No
         self._write_byte(0x05,0x00)
-        # REG CTRL5 : Enable Gyroscope And Accelerometer Low-Pass Filter 
-        self._write_byte(0x06,0x11)
+        # REG CTRL5 : disable Gyroscope And Accelerometer Low-Pass Filter, bandwith = 7Hz
+        self._write_byte(0x06,0x00)
         # REG CTRL6 : Disables Motion on Demand.
         self._write_byte(0x07,0x00)
         # REG CTRL7 : Enable Gyroscope And Accelerometer
